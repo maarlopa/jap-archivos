@@ -5,4 +5,4 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 });
 
-getJSONData(PRODUCTS_URL);
+getJSONData("https://japdevdep.github.io/ecommerce-api/product/all.json");
