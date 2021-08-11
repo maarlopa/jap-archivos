@@ -12,12 +12,12 @@ function mostrarProductos(){
         {
             categoriesArray = resultObj.data;
             
-            showCategoriesListIndividual(listadoProductos);
+            agregarProductosAListado(listadoProductos);
         }
         
     });
 }
-function showCategoriesListIndividual(array){
+function agregarProductosAListado(array){
    
     let htmlContentToAppend = `<a href="">Vovler atras</a>`;
     for(let i = 0; i < array.length; i++){
