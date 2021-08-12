@@ -9,19 +9,31 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         let productos = "";
         for (let index=0; index < array.length; index++){
-        let nombre = array[index].name;
-        let descripcion = array[index].description;
-        let costo =  array[index].cost;
-        let moneda =  array[index].currency;
-        let imagen = array[index].imgSrc;
-        let contador_ventas = array[index].soldCount;
-        productos += `<p>${nombre}</p><p>${descripcion}</p><p>${costo}</p><p>${moneda}</p><p>${contador_ventas}</p><img src=${imagen}>`
+         let nombre = array[index].name;
+         let descripcion = array[index].description;
+         let costo =  array[index].cost;
+         let moneda =  array[index].currency;
+         let imagen = array[index].imgSrc;
+         let contador_ventas = array[index].soldCount;
+
+         productos +=  `<a href="category-info.html" class="list-group-item list-group-item-action">
+                      <div class="row">
+                      <div class="col-3">
+                      <img src="` +  array[index].imgSrc + `" alt="` + array[index].description + `" class="img-thumbnail"
+                      </div>
+                      <div class="col">
+                      <div class="d-flex w-100 justify-content-between">
+                       <h4 class="mb-1">`+ array[index].name +`</h4>
+                      <small class="text-muted">` +  array[index].soldCount + ` artículos</small>
+                      </div>
+                      <p class="mb-1">` + array[index].description + `</p>
+                      </div>
+                      </div>
+                      </a>`
+    
         }
         document.getElementById('listado-productos').innerHTML = productos;
     }
 
     desplegarProductos(PRODUCTS_URL);
 });
-   
-
-  
