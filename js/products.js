@@ -16,8 +16,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
          let imagen = array[index].imgSrc;
          let contador_ventas = array[index].soldCount;
 
-         productos +=  `<a href="category-info.html" class="list-group-item list-group-item-action">
-                      <div class="row">
+         productos +=  `<div class="row">
                       <div class="col-3">
                       <img src="` +  array[index].imgSrc + `" alt="` + array[index].description + `" class="img-thumbnail"
                       </div>
