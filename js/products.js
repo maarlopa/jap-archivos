@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
 });
 
 function mostrarProductos(){
-    getJSONData(PRODUCTS_URL).then(function(resultadoFetch){
+    getJSONData("https://japdevdep.github.io/ecommerce-api/product/all.jsonPRODUCTS_URL").then(function(resultadoFetch){
         if (resultadoFetch.status === "ok"){
-            agregarProductosAListado(listadoProductos);
+            agregarProductosAListado(array);
         }
         
     });
