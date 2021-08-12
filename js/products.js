@@ -15,7 +15,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
         let moneda =  array[index].currency;
         let imagen = array[index].imgSrc;
         let contador_ventas = array[index].soldCount;
-        productos += `<p>${nombre}</p><p>${descripcion}</p><p>${costo}</p><p>${moneda}</p><p>${contador_ventas}</p> <img src =${imagen}`
+        productos += `<p>${nombre}</p><p>${descripcion}</p><p>${costo}</p><p>${moneda}</p><p>${contador_ventas}</p> <div class="col-lg-3 col-md-4 col-6">
+                      <div class="d-block mb-4 h-100">
+                      <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+                      </div>
+                      </div>`
         }
         document.getElementById('listado-productos').innerHTML = productos;
     }
