@@ -25,7 +25,7 @@ function agregarProductosAListado(array){
 
   productos += `<p>${nombre}</p><p>${descripcion}</p><p>${costo}</p><p>${moneda}</p><p>${contador_ventas}</p> <img src =${imagen}>`
  }
-  document.getElementById('contenido').innerHTML = productos;
+  document.getElementById('listado-productos').innerHTML = productos;
 }
 
 mostrarProductos();
