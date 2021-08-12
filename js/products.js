@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         document.getElementById('listado-productos').innerHTML = productos;
     }
 
-    desplegarProductos();
+    desplegarProductos(PRODUCTS_URL);
 });
    
 
