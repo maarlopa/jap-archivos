@@ -5,14 +5,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 });
 
-function mostrarProductos(){
-    getJSONData("https://japdevdep.github.io/ecommerce-api/product/all.jsonPRODUCTS_URL").then(function(resultadoFetch){
-        if (resultadoFetch.status === "ok"){
-            agregarProductosAListado(array);
-        }
-        
-    });
-}
 function agregarProductosAListado(array){
   let productos = "";
   for (let index=0; index < array.length; index++){
@@ -28,4 +20,4 @@ function agregarProductosAListado(array){
   document.getElementById('listado-productos').innerHTML = productos;
 }
 
-mostrarProductos();
+agregarProductosAListado();
