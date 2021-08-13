@@ -9,12 +9,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         let productos = "";
         for (let index=0; index < array.length; index++){
-         let nombre = array[index].name;
-         let descripcion = array[index].description;
-         let costo =  array[index].cost;
-         let moneda =  array[index].currency;
-         let imagen = array[index].imgSrc;
-         let contador_ventas = array[index].soldCount;
 
          productos +=  `<a href="#" class="list-group-item list-group-item-action">
                       <div class="row">
