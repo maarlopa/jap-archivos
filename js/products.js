@@ -9,8 +9,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         let productos = "";
         for (let index=0; index < array.length; index++){
+             productos += `<div class="list-group-item list-group-item-action"><div class="row"><div class="col-3"><img src="` + array[index].imgSrc + `" alt="` + array[index].description + 
+             `" class="img-thumbnail"> </img></div><div class="col"><div class="d-flex w-100 justify-content-between"><h4 class="mb-1">`+
+             array[index].name +`</h4><small class="text-muted">` + category.currency + ` ` + array[index].soldCount +  `</small></div><p>` + array[index].description + `</p></div></div></div>`
+        }      
 
-         productos +=  `<a href="#" class="list-group-item list-group-item-action">
+        /* productos +=  `<a href="#" class="list-group-item list-group-item-action">
                       <div class="row">
                       <div class="col-3">
                       <img src="` +  array[index].imgSrc + `" alt="` + array[index].description + `" class="img-thumbnail"
@@ -23,11 +27,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
                       <p class="mb-1">` + array[index].description + `</p>
                       </div>
                       </div>
-                      </a>`
+                      </a>`*/
     
         }
         document.getElementById('listado-productos').innerHTML = productos;
-    }
 
     desplegarProductos(PRODUCTS_URL);
 });
