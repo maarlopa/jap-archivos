@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         let productos = "";
         for (let index=0; index < array.length; index++){
-                      </div>
             productos +=  `<a href="#" class="list-group-item list-group-item-action">
                            <div class="row">
                            <div class="col-3">
