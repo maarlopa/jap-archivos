@@ -139,3 +139,16 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.botonlogout {
+  position:absolute;
+  font-size: 12px;
+  background-color:grey;
+  color:white;
+  font-weight: 600;
+  border-radius: 5px;
+  border: 1px solid grey;
+  cursor: pointer;
+  padding: 7px;
+  margin-top: 2px;
+}
