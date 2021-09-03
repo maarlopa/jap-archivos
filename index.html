@@ -8,13 +8,14 @@
     <link href="css/styles-login.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <form action="https://maarlopa.github.io/jap-archivos/home.html" class="formulario">
+    <form action="home.html" class="formulario">
         <img src="img/logo.png">
         <h1>Iniciar Sesión</h1>
-        <input type="email" id="campoemail" class="campotexto" placeholder="Email" required><br>
+        <input type="text" id="campoemail" class="campotexto" placeholder="Nombre" required><br>
         <input type="password" id="campocontrasenia" class="campotexto" placeholder="Contraseña" required><br>
         <input type="checkbox" value="recordarme"> Recordarme<br><br>
-        <button class="boton" type="submit">Ingresar</button>
-      </form>
+        <button class="boton" type="submit" id="botonlogin" onclick="guardarNombreUsuario()">Ingresar</button>
+      </form>    
+<script src="js/index.js"></script>     
 </body>
 </html>
