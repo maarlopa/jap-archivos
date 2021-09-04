@@ -10,8 +10,8 @@ function ordenarPrecio(criterio, arregloAordenar){
     if (criterio === ORDENAR_MENOR_PRECIO)
     {
         ordenado = arregloAordenar.sort(function(a, b) {
-            if ( a.cost < b.cost ){ return -1; } // -1 significa que a viene primero que b en la lista
-            if ( a.cost > b.cost ){ return 1; } // 1 significa que b viene primero que a en la lista
+            if ( a.cost < b.cost ){ return -1; }
+            if ( a.cost > b.cost ){ return 1; } 
             return 0;
         });
     }else if (criterio === ORDENAR_MAYOR_PRECIO){
