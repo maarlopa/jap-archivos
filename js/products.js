@@ -52,7 +52,7 @@ function desplegarProductos(){
         if (((minCount == undefined) || (/*minCount != undefined && parseInt*/(arregloProductos[index].cost) >= minCount)) &&
            ((maxCount == undefined) || (/*maxCount != undefined && parseInt*/(arregloProductos[index].cost) <= maxCount))){
 
-            productos +=  `<a href="#" class="list-group-item list-group-item-action">
+            productos +=  `<a href="product-info.html" class="list-group-item list-group-item-action">
                        <div class="row">
                        <div class="col-3">
                        <img src="` + arregloProductos[index].imgSrc + `" alt="` + arregloProductos[index].description + `" class="img-thumbnail">
