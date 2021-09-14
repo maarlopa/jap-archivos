@@ -4,19 +4,14 @@ var productosListadoGlobal = [];
 var texto = undefined;
 var puntuacion = undefined;
 
-/*async function extraerInfo(PRODUCT_INFO_URL){
-    let promise = await fetch(PRODUCT_INFO_URL);
-    detalleProducto = await promise.json();
-}*/
+function mostrarGaleriaImagenes(array) {
 
-function showImagesGallery(array) {
-
-    let htmlContentToAppend = "";
+    let imagenes = "";
 
     for (let i = 0; i < array.length; i++) {
         let imageSrc = array[i];
 
-        htmlContentToAppend += `
+        imagenes += `
         <div class="col-lg-3 col-md-4 col-6">
             <div class="d-block mb-4 h-100">
                 <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
@@ -24,7 +19,7 @@ function showImagesGallery(array) {
         </div>
         `
 
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+        document.getElementById("productImagesGallery").innerHTML = imagenes;
     }
 }
 
@@ -32,9 +27,10 @@ function showImagesGallery(array) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            detalleProducto = resultObj.data;
+
+    getJSONData(PRODUCT_INFO_URL).then(function (objeto) {
+        if (objeto.status === "ok") {
+            detalleProducto = objeto.data;
 
 
             let categoryNameHTML = document.getElementById("categoryName");
@@ -50,35 +46,25 @@ document.addEventListener("DOMContentLoaded", function (e) {
             productCriteriaHTML.innerHTML = detalleProducto.soldCount;
 
             //Muestro las imagenes en forma de galería
-            showImagesGallery(detalleProducto.images);
+            mostrarGaleriaImagenes(detalleProducto.images);
         }
     });
 
-    getJSONData(PRODUCTS_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            productosListadoGlobal = resultObj.data;
+    getJSONData(PRODUCTS_URL).then(function (objeto2) {
+        if (objeto2.status === "ok") {
+            productosListadoGlobal = objeto2.data;
             productosRelacionados();
         }    
     });        
 
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            comentarios = resultObj.data;
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (objeto3) {
+        if (objeto3.status === "ok") {
+            comentarios = objeto3.data;
             mostrarComentarios();
         }    
     });        
   
-    /*
-    document.getElementById("mostrarComents").addEventListener("click", function(){
-        //Obtengo el mínimo y máximo de los intervalos para ordenar por cantidad
-        //de productos por categoría.
-        
-        
-    });
-    */
     document.getElementById("botonComentarios").addEventListener("click", function(){
-        //Obtengo el mínimo y máximo de los intervalos para ordenar por cantidad
-        //de productos por categoría.
         texto = document.getElementById("textoPublicacion").value;
         puntuacion = document.getElementById("puntuar").value;
         publicarComentario();
@@ -117,8 +103,8 @@ function mostrarComentarios() {
 
         comentariosAImprimir += `<div> 
                                 <hr class="row text-center text-lg-left pt-2">
-                                <strong>${comentarios[index].user}</strong> ${comentarios[index].dateTime}
-                                ${puntuacionPorEstrellas(comentarios[index].score)} <br> ${comentarios[index].description} <br>
+                                <strong>${comentarios[index].user}</strong>\u00A0\u00A0${comentarios[index].dateTime}\u00A0
+                                ${puntuacionPorEstrellas(comentarios[index].score)} <br> ${comentarios[index].description}<br>
                                 </div>`
     }
     document.getElementById('mostrarComents').innerHTML = comentariosAImprimir;
@@ -134,7 +120,7 @@ function publicarComentario(){
 
     document.getElementById("comentarioPublicado").innerHTML = `<div> 
                                                                <hr class="row text-center text-lg-left pt-2">
-                                                               <strong>${nombreComentarios}</strong> ${fechaYHora} ${puntuacionPorEstrellas(puntuacion)}<br>${texto}
+                                                               <strong>${nombreComentarios}</strong>\u00A0\u00A0${fechaYHora}\u00A0\u00A0${puntuacionPorEstrellas(puntuacion)}<br>${texto}
                                                                </div>`;
 }
 
