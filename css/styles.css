@@ -175,3 +175,6 @@ a.custom-card:hover {
   color: orange;
 }
 
+.divbuscador {
+  padding-left: 0px !important;
+}
