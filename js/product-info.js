@@ -110,6 +110,17 @@ function mostrarComentarios() {
     document.getElementById('mostrarComents').innerHTML = comentariosAImprimir;
 }
 
+function puntuacionPorEstrellas(numeroEstrellas){
+    let estrellas = '';
+    for (let i = 1; i <= numeroEstrellas; i++) {
+        estrellas +=`<span class="fa fa-star checked"></span>`
+    }
+    for (let i = 5; i > numeroEstrellas; i--) {
+        estrellas +=`<span class="fa fa-star"></span>`
+    }
+    return estrellas;
+}
+
 function publicarComentario(){
 
     let nombreComentarios = localStorage.getItem("nombreUsuario"); 
@@ -122,15 +133,4 @@ function publicarComentario(){
                                                                <hr class="row text-center text-lg-left pt-2">
                                                                <strong>${nombreComentarios}</strong>\u00A0\u00A0${fechaYHora}\u00A0\u00A0${puntuacionPorEstrellas(puntuacion)}<br>${texto}
                                                                </div>`;
-}
-
-function puntuacionPorEstrellas(numeroEstrellas){
-    let estrellas = '';
-    for (let i = 1; i <= numeroEstrellas; i++) {
-        estrellas +=`<span class="fa fa-star checked"></span>`
-    }
-    for (let i = 5; i > numeroEstrellas; i--) {
-        estrellas +=`<span class="fa fa-star"></span>`
-    }
-    return estrellas;
 }
