@@ -33,17 +33,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
             detalleProducto = objeto.data;
 
 
-            let categoryNameHTML = document.getElementById("categoryName");
-            let productPrice = document.getElementById("precioProducto");
-            let categoryDescriptionHTML = document.getElementById("categoryDescription");
-            let productCountHTML = document.getElementById("productCount");
-            let productCriteriaHTML = document.getElementById("productCriteria");
+            let nombreProducto = document.getElementById("nombreProducto");
+            let precioProducto = document.getElementById("precioProducto");
+            let descripcionProducto = document.getElementById("descripcionProducto");
+            let categoriaProducto = document.getElementById("categoriaProducto");
+            let productoVendidos = document.getElementById("productoVendidos");
 
-            categoryNameHTML.innerHTML = detalleProducto.name;
-            productPrice.innerHTML = detalleProducto.currency + " " + detalleProducto.cost;
-            categoryDescriptionHTML.innerHTML = detalleProducto.description;
-            productCountHTML.innerHTML = detalleProducto.category;
-            productCriteriaHTML.innerHTML = detalleProducto.soldCount;
+            nombreProducto.innerHTML = detalleProducto.name;
+            precioProducto.innerHTML = detalleProducto.currency + " " + detalleProducto.cost;
+            descripcionProducto.innerHTML = detalleProducto.description;
+            categoriaProducto.innerHTML = detalleProducto.category;
+            productoVendidos.innerHTML = detalleProducto.soldCount;
 
             //Muestro las imagenes en forma de galería
             mostrarGaleriaImagenes(detalleProducto.images);
