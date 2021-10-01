@@ -11,13 +11,10 @@ function mostrarGaleriaImagenes(array) {
     for (let i = 0; i < array.length; i++) {
         let imageSrc = array[i];
 
-        imagenes += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
-        </div>
-        `
+        imagenes += `<div class="carousel-item">
+                     <img src="${imageSrc}" class="mx-auto d-block w-50" alt="">
+                     </div>
+                     `
 
         document.getElementById("productImagesGallery").innerHTML = imagenes;
     }

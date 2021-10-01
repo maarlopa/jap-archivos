@@ -29,6 +29,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/dropzone.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4db5d28a9e.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
@@ -38,14 +39,13 @@
             <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
             <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
             <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
+              <button class="btn btn-dark dropdown-toggle" type="button" id="usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="cart.html">Mi Carrito</a>
-                <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+                <a class="dropdown-item" href="cart.html"><span class="fas fa-shopping-cart"></span>&ensp;Mi Carrito</a>
+                <a class="dropdown-item" href="my-profile.html"><span class="fas fa-user"></span>&ensp;&nbsp;Mi Perfil</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="javascript:deslogearse()">Cerrar Sesión</a>
+                <a class="dropdown-item" href="javascript:deslogearse()"><span class="fas fa-sign-out-alt"></span>&nbsp;&nbsp;Cerrar Sesión</a>
               </div>
             </div>
         </div>

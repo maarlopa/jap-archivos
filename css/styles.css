@@ -180,3 +180,7 @@ a.custom-card:hover {
 .divbuscador {
   padding-left: 0px !important;
 }
+
+.dropdown-item:hover {
+  background-color: #53C0FB;
+}

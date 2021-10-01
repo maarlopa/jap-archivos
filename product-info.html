@@ -15,6 +15,7 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/4db5d28a9e.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -25,14 +26,14 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown button
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="cart.html">Mi Carrito</a>
-          <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+          <a class="dropdown-item" href="cart.html"><span class="fas fa-shopping-cart"></span>&ensp;Mi Carrito</a>
+          <a class="dropdown-item" href="my-profile.html"><span class="fas fa-user"></span>&ensp;&nbsp;Mi Perfil</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="javascript:deslogearse()">Cerrar Sesión</a>
+          <a class="dropdown-item" href="javascript:deslogearse()"><span class="fas fa-sign-out-alt"></span>&nbsp;&nbsp;Cerrar Sesión</a>
         </div>
       </div>
     </div>
@@ -69,9 +70,16 @@
 
         <dt>Imágenes ilustrativas</dt>
         <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          <br>
+          <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+              </div>
+              <div id="productImagesGallery" alt=""></div>
+            </div>
           </div>
         </dd>
+        <br>
 
         <h5>Productos relacionados</h5>
         <dd>
