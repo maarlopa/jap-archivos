@@ -184,3 +184,24 @@ a.custom-card:hover {
 .dropdown-item:hover {
   background-color: #53C0FB;
 }
+
+.canti {
+  width: 30%;
+  text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
+input[type=number]{
+  border: 0;
+}
+
+.img-carrito{
+  width: 60%;
+}
+
+.tacho{
+  cursor: pointer;
+}
