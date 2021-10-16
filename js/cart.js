@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (objetoCarrito.status === "ok") {
             productoCarrito = objetoCarrito.data;
             mostrarProductosCarrito();
+            sumar();
         }    
     });  
 
@@ -15,9 +16,17 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 function mostrarProductosCarrito() {
     let prodCarrito = [];
-    
+    let dolaresAPesos = 0;
+
         for (let i = 0; i < productoCarrito.articles.length; i++) {
-            totalProducto = productoCarrito.articles[i].unitCost * productoCarrito.articles[i].count;
+            let mostrarSubtotalProducto = productoCarrito.articles[i].unitCost * productoCarrito.articles[i].count;
+
+            if(productoCarrito.articles[i].currency == "USD"){
+                productoCarrito.articles[i].unitCost = productoCarrito.articles[i].unitCost * 40;
+                mostrarSubtotalProducto = productoCarrito.articles[i].unitCost;
+                dolaresAPesos += mostrarSubtotalProducto;
+                productoCarrito.articles[i].currency = "UYU";
+            }
             prodCarrito+= 
             `<tr>
              <th scope="row">${i+1}</th>
@@ -25,7 +34,7 @@ function mostrarProductosCarrito() {
              <td><h5>${productoCarrito.articles[i].name}</h5></td>
              <td><input type="number" class="canti" id="cant-prod${i}" onchange="sumar();" min="1" step="1" value="${productoCarrito.articles[i].count}"></td>
              <td><h5>${productoCarrito.articles[i].currency} <span class="preciosProd">${productoCarrito.articles[i].unitCost}</span></h5></td>
-             <td><span id="sumaProductos${i}">${totalProducto}</span></td>
+             <td><h5>UYU <span id="subtotalProducto${i}">${mostrarSubtotalProducto}</span></h5></td>
              <td><span class="tacho fas fa-trash-alt" onclick="eliminarProducto();"+ i +");></span></td>
              </tr>
             `
@@ -37,15 +46,14 @@ function mostrarProductosCarrito() {
 }
 
 function sumar(){
-    let prodCarrito = document.getElementsByClassName("preciosProd");
-    let sumaProd = 0;
+    let precioProdCarrito = document.getElementsByClassName("preciosProd");
     let cantidadProd = document.getElementsByTagName("input");
-    let subtotal = 0;
+    let sumaProds = 0;
 
-    for (let i = 0; i < prodCarrito.length; i++) {
-        document.getElementById("sumaProductos"+i).innerHTML = parseFloat(prodCarrito[i].innerHTML) * (cantidadProd[i].value);
-        subtotal += parseFloat(prodCarrito[i].innerHTML) * parseFloat(cantidadProd[i].value);
+    for (let i = 0; i < precioProdCarrito.length; i++) {
+        document.getElementById("subtotalProducto"+i).innerHTML = parseFloat(precioProdCarrito[i].innerHTML) * (cantidadProd[i].value);
+        sumaProds += parseFloat(precioProdCarrito[i].innerHTML) * parseFloat(cantidadProd[i].value);
     }    
 
-    document.getElementById("subtotal").innerHTML = (subtotal);
+    document.getElementById("sumaProds").innerHTML = (sumaProds);
 }
