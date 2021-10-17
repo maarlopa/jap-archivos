@@ -80,12 +80,24 @@
         <table class="table text-right">
           <thead>
             <tr>
-              <th scope="col">Subtotal a pagar ($):</th>
+              <th scope="col" class="col-1"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col" class="col-1"></th>
+              <th scope="col"></th>
+              <th scope="col"class="col-2">Subtotal a pagar ($):</th>
+              <th scope="col" class="col-1"></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row"><h5>UYU <span id="sumaProds"></span></h5></th>
+              <th></th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td scope="row"><h5>UYU <span id="sumaProds"></span></h5></td>
+              <td></td>
             </tr>  
           </tbody>
         </table>
@@ -150,18 +162,42 @@
     </form>
     <br>
     <h5><strong>Seleccionar método de pago</strong></h5>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" value="option4" checked>
-      <label class="form-check-label" for="exampleRadios1">
-        Tarjeta de Crédito
-      </label>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Seleccionar
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Medios de pago</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="modo1" checked>
+          <label class="form-check-label" for="exampleRadios1">
+            Tarjeta de crédito
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio"value="modo2">
+          <label class="form-check-label" for="exampleRadios2">
+            Transferencia bancaria
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" value="option5">
-      <label class="form-check-label" for="exampleRadios1">
-        Transferencia Bancaria
-      </label>
-    </div>
+  </div>
+</div>
     <br>
     <hr class="my-4">
     <button type="button" class="btn btn-primary btn-lg btn-block"><strong>Finalizar Compra</strong></button>
