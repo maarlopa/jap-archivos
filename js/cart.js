@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (objetoCarrito.status === "ok") {
             productoCarrito = objetoCarrito.data;
             mostrarProductosCarrito();
-            sumar();
+            sumarYActualizarSubtotales(); //muestra en pantalla la suma total al pie de la tabla
         }    
     });  
 
@@ -32,7 +32,7 @@ function mostrarProductosCarrito() {
              <th scope="row">${i+1}</th>
              <td><img src="${productoCarrito.articles[i].src}" class="img-carrito"></td>
              <td><h5>${productoCarrito.articles[i].name}</h5></td>
-             <td><input type="number" class="canti" id="cant-prod${i}" onchange="sumar();" min="1" step="1" value="${productoCarrito.articles[i].count}"></td>
+             <td><input type="number" class="canti" onchange="sumarYActualizarSubtotales();" min="1" step="1" value="${productoCarrito.articles[i].count}"></td>
              <td><h5>${productoCarrito.articles[i].currency} <span class="preciosProd">${productoCarrito.articles[i].unitCost}</span></h5></td>
              <td><h5>UYU <span id="subtotalProducto${i}">${mostrarSubtotalProducto}</span></h5></td>
              <td><span class="tacho fas fa-trash-alt" onclick="eliminarProducto();"+ i +");></span></td>
@@ -40,12 +40,10 @@ function mostrarProductosCarrito() {
             `
         }
 
-        sumar();
-
         document.getElementById("productos").innerHTML = prodCarrito  
 }
 
-function sumar(){
+function sumarYActualizarSubtotales(){
     let precioProdCarrito = document.getElementsByClassName("preciosProd");
     let cantidadProd = document.getElementsByTagName("input");
     let sumaProds = 0;
