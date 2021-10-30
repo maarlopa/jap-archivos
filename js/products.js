@@ -54,20 +54,23 @@ function desplegarProductos(){
            ((maxCount == undefined) || (/*maxCount != undefined && parseInt*/(arregloProductos[index].cost) <= maxCount))){
             if ((buscador == '' ) || (arregloProductos[index].name.toUpperCase().includes(buscador)) || (arregloProductos[index].description.toUpperCase().includes(buscador))) {
 
-             productos += `<a href="product-info.html" class="list-group-item list-group-item-action">
-                       <div class="row">
-                       <div class="col-3">
-                       <img src="` + arregloProductos[index].imgSrc + `" alt="` + arregloProductos[index].description + `" class="img-thumbnail">
-                       </div>
-                       <div class="col">
-                       <div class="d-flex w-100 justify-content-between">
-                       <h4 class="mb-1">`+ arregloProductos[index].name +`</h4>
-                       <small class="text-muted">` + arregloProductos[index].currency + `  ` + arregloProductos[index].cost + `<br>` + arregloProductos[index].soldCount + ` vendidos</small>
-                       </div>
-                       <p class="mb-1">` + arregloProductos[index].description + `</p>
-                       </div>
-                       </div>
-                       </a>`
+             productos += `
+                        <div class="col-md-3">
+                           <div class="card md-3 shadow-sm custom-card"><a href="product-info.html">
+                             <img class="bd-placeholder-img card-img-top" src="` + arregloProductos[index].imgSrc + `" alt="` + arregloProductos[index].description + `>
+                             <div class="justify-content-between">
+                                 <h4 class="m-3">`+ arregloProductos[index].name +`</h4>
+                                 <div class="card-body">
+                                     <p class="card-text">
+                                      <small class="text-muted">` + arregloProductos[index].currency + `  ` + arregloProductos[index].cost + `<br>` + arregloProductos[index].soldCount + ` vendidos</small>
+                                     </p>
+                                      <p class="mb-1">` + arregloProductos[index].description + `</p>
+                                 </div>     
+                             </div>
+                             </a>
+                            </div>
+                        </div>
+                        `
             }
         }
     }                

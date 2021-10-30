@@ -56,100 +56,101 @@
       </div>
     </div>
   </nav>
+  <br>
   <main role="main">
-    <div class="container p-5">
+    <div class="container">
       <div class="text-center">
         <h2>Mi Carrito</h2>
         <p class="lead">Encontrarás aquí toda la información de los productos agregados al carrito de compras.</p>
         <br>
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col" class="col-1">#</th>
-              <th scope="col" class="col-2"></th>
-              <th scope="col">Producto</th>
-              <th scope="col" class="col-1">Cantidad</th>
-              <th scope="col">Precio (U)</th>
-              <th scope="col">Subtotal</th>
-              <th scope="col" class="col-1"></th>
-            </tr>
-          </thead>
-          <tbody id="productos">
-          </tbody>
-        </table>
-        <table class="table text-right">
-          <thead>
-            <tr>
-              <th scope="col" class="col-1"></th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-              <th scope="col" class="col-1"></th>
-              <th scope="col"></th>
-              <th scope="col"class="col-2">Subtotal a pagar ($):</th>
-              <th scope="col" class="col-1"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th></th>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td scope="row"><h5>UYU <span id="sumaProds"></span></h5></td>
-              <td></td>
-            </tr>  
-          </tbody>
-        </table>
-        <span id="subtotalProducto"></span>
-      </div>
-    <h5><strong>Método de Envío</strong></h5>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" value="option1" checked>
-      <label class="form-check-label" for="exampleRadios1">
-        Premium - 2-5 días (15% adicional).
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" value="option2">
-      <label class="form-check-label" for="exampleRadios2">
-        Express - 5-8 días (7% adicional).
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-      <label class="form-check-label" for="exampleRadios3">
-        Standard - 12-15 días (5% adicional).
-      </label>
-    </div>
-    <br>
-    <br>
-    <h5><strong>Costos</strong></h5>
-    <ul class="list-group">
-      <li class="list-group-item"><strong>Subtotal</strong>
-        <div></div>
-        <p>Costo unitario del precio por cantidad</p>
-      </li>
-      <li class="list-group-item"><strong>Costo de Envío</strong>
-        <p>Según el tipo de envío</p>
-      </li>
-      <li class="list-group-item"><strong>Total ($)</strong></li>
-    </ul>
-    <br>
-    <br>
-    <form>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <div class="form-group">
-            <h5><strong>Dirección de envío</strong></h5>
-            <input type="text" class="form-control" placeholder="calle, n° de puerta...">
-          </div>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="col-1">#</th>
+                <th scope="col" class="col-2"></th>
+                <th scope="col" class="col-3">Producto</th>
+                <th scope="col" class="col-1">Cantidad</th>
+                <th scope="col" class="col-2">Precio (U)</th>
+                <th scope="col" class="col-2">Subtotal</th>
+                <th scope="col" class="col-1"></th>
+              </tr>
+            </thead>
+            <tbody id="productos">
+            </tbody>
+          </table>
+        </div>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col" class="col-2"></th>
+                <th scope="col" class="col-2"></th>
+                <th scope="col" class="col-2"></th>
+                <th scope="col" class="col-2"></th>
+                <th scope="col" class="col-2">Subtotal a pagar ($):</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th></th>
+                <td scope="row" class="col-3"></td>
+                <td scope="row" class="col-3"></td>
+                <td scope="row" class="col-3"></td>
+                <td scope="row" class="col-3">
+                  <h5>UYU <span id="sumaProds"></span></h5>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h5><strong>Método de Envío</strong></h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" value="option1" checked>
+          <label class="form-check-label" for="exampleRadios1">
+            Premium - 2-5 días (15% adicional).
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" value="option2">
+          <label class="form-check-label" for="exampleRadios2">
+            Express - 5-8 días (7% adicional).
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+          <label class="form-check-label" for="exampleRadios3">
+            Standard - 12-15 días (5% adicional).
+          </label>
+        </div>
+        <br>
+        <br>
+        <h5><strong>Costos</strong></h5>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Subtotal</strong>
+            <div></div>
+            <p>Costo unitario del precio por cantidad</p>
+          </li>
+          <li class="list-group-item"><strong>Costo de Envío</strong>
+            <p>Según el tipo de envío</p>
+          </li>
+          <li class="list-group-item"><strong>Total ($)</strong></li>
+        </ul>
+        <br>
+        <br>
+        <h5><strong>Dirección de envío</strong></h5>
+        <br>
+        <form>
           <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-sm-6">
+              <label for="inputdom">Domicilio</label>
+              <input type="text" class="form-control" placeholder="calle, n° de puerta...">
+            </div>
+            <div class="form-group col-sm-4">
               <label for="inputCity">Esquina</label>
               <input type="text" class="form-control" placeholder="entre calles...">
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-sm-2">
               <label for="inputState">País</label>
               <select id="inputState" class="form-control">
                 <option selected>Uruguay</option>
@@ -157,58 +158,60 @@
               </select>
             </div>
           </div>
-        </div>
-      </div>
-    </form>
-    <br>
-    <h5><strong>Seleccionar método de pago</strong></h5>
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Seleccionar
-</button>
+        </form>
+      
+       <br>
+       <h5><strong>Seleccionar método de pago</strong></h5>
+       <!-- Button trigger modal -->
+       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Seleccionar
+       </button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Medios de pago</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" value="modo1" checked>
-          <label class="form-check-label" for="exampleRadios1">
-            Tarjeta de crédito
-          </label>
+       <!-- Modal -->
+       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Medios de pago</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="modo1" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                  Tarjeta de crédito
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="modo2">
+                <label class="form-check-label" for="exampleRadios2">
+                  Transferencia bancaria
+                </label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+          </div>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio"value="modo2">
-          <label class="form-check-label" for="exampleRadios2">
-            Transferencia bancaria
-          </label>
+       </div>
+       <br>
+       <hr>
+       <button type="button" class="btn btn-primary btn-lg btn-block"><strong>Finalizar Compra</strong></button>
+       <div id="spinner-wrapper">
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
-      </div>
-    </div>
-  </div>
-</div>
-    <br>
-    <hr class="my-4">
-    <button type="button" class="btn btn-primary btn-lg btn-block"><strong>Finalizar Compra</strong></button>
-    <div id="spinner-wrapper">
-      <div class="lds-ring">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
+       </div>
+       <br>
+     </div>
   </div>
   </main>
   <script src="js/jquery-3.4.1.min.js"></script>

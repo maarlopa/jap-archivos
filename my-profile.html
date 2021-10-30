@@ -43,30 +43,145 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <div class="dropdown">
-        <button class="btn btn-dark dropdown-toggle" type="button" id="usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="usuario" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="cart.html"><span class="fas fa-shopping-cart"></span>&ensp;Mi Carrito</a>
           <a class="dropdown-item" href="my-profile.html"><span class="fas fa-user"></span>&ensp;&nbsp;Mi Perfil</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="javascript:deslogearse()"><span class="fas fa-sign-out-alt"></span>&nbsp;&nbsp;Cerrar Sesión</a>
+          <a class="dropdown-item" href="javascript:deslogearse()"><span
+              class="fas fa-sign-out-alt"></span>&nbsp;&nbsp;Cerrar Sesión</a>
         </div>
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
+  <br>
+  <main role="main">
+   <div class="container">
+     <div class="text-center">
+      <h2>Mi Perfil</h2>
+      <p class="lead">Verás aquí todos los datos de tu perfil.</p>
+      <br>
+     <div class="cuerpoPerfil">
+       <div id="nombreUsuarioPerfil"></div>
+     </div>
+
+     <br>
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+     <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Mis Datos</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img id="imgPerfil" src="" height="200" alt="Acá va la imagen...">
+          <br><br>
+          <input type="file" onchange="fotoUsuarioBase64()" placeholder=""><br>
+          <div class="row">
+            <div class="col form-check form-check-inline">
+              <input class="form-check-input avatars" type="radio" name="inlineRadioOptions" id="avatar0" value="0">
+              <label class="form-check-label" for="inlineRadio1"></label>
+              <img src="img/avatar_0.png" style="width: 80%;">
+            </div>
+            <div class="col form-check form-check-inline">
+              <input class="form-check-input avatars" type="radio" name="inlineRadioOptions" id="avatar1" value="1">
+              <label class="form-check-label" for="inlineRadio2"></label>
+              <img src="img/avatar_1.png" style="width: 80%;">
+            </div>
+            <div class="col form-check form-check-inline">
+              <input class="form-check-input avatars" type="radio" name="inlineRadioOptions" id="avatar2" value="2">
+              <label class="form-check-label" for="inlineRadio2"></label>
+              <img src="img/avatar_2.png" style="width: 80%;">
+            </div>
+            <div class="col form-check form-check-inline">
+              <input class="form-check-input avatars" type="radio" name="inlineRadioOptions" id="avatar3" value="3">
+              <label class="form-check-label" for="inlineRadio2"></label>
+              <img src="img/avatar_3.png" style="width: 80%;">
+            </div>
+            <div class="col form-check form-check-inline">
+              <input class="form-check-input avatars" type="radio" name="inlineRadioOptions" id="avatar4" value="4">
+              <label class="form-check-label" for="inlineRadio2"></label>
+              <img src="img/avatar_4.png" style="width: 80%;">
+            </div>
+            <div class="col form-check form-check-inline">
+              <input class="form-check-input avatars" type="radio" name="inlineRadioOptions" id="avatar5" value="5">
+              <label class="form-check-label" for="inlineRadio2"></label>
+              <img src="img/avatar_5.png" style="width: 80%;">
+            </div>
+            <div class="col form-check form-check-inline">
+              <input class="form-check-input avatars" type="radio" name="inlineRadioOptions" id="avatar6" value="6">
+              <label class="form-check-label" for="inlineRadio2"></label>
+              <img src="img/avatar_6.png" style="width: 80%;">
+            </div>
+          </div>
+          <br>
+          <form>
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label>Nombres</label>
+                <input type="text" class="form-control" id="nombresPerfil" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label>Apellidos</label>
+                <input type="text" class="form-control" id="apellidosPerfil" required>
+              </div>
+              <div class="form-row">
+                <div class="col-md-2 mb-3">
+                  <label>Edad</label>
+                  <input type="number" class="form-control" id="edadPerfil" min="18" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label>Email</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">@</span>
+                    </div>
+                    <input type="email" class="form-control" id="emailPerfil" required>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label>Teléfono o Celular</label>
+                  <input type="number" class="form-control" id="telPerfil" required>
+                </div>
+              </div>
+            </div>
+            <br>
+            <button class="btn btn-primary" type="submit" onclick="guardarPerfil()">Guardar cambios</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+     </div>
+     </div>
+     <div class="row shadowPerfil">
+     <div class="col-md-2"></div>
+     <div class="col-md-3" id="userImgn"></div>
+     <div class="col-md-2" id="userProf"></div>
+     <div class="col-md-2">
+      <br>
+      <br>
+      <button type="button" class="fas fa-user-edit botonPerfil" data-toggle="modal" data-target="#exampleModal">
+      </button>
+     </div>
+     <div class="col-md-4"></div>
+   </div> 
+  </main>
+  <br>
+  <br>
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
+    </div>  
   </footer>
   <div class="alert fade alert-success" role="alert" id="alertResult">
     <span id="resultSpan"></span>
