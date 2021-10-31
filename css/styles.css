@@ -213,14 +213,13 @@ input[type=number]{
 }
 
 .cuerpoPerfil{
-  color: white;
-  text-shadow: 2px 2px grey;
-  background-image: url(../img/fondo_user.jpg);
+  color: #17a2b8;
+  text-shadow: 2px 2px darkslategrey;
+  background-image: linear-gradient(to right,  #17a2b8, rgb(149, 255, 250));
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  max-width:100%;
-  max-height:auto;
-  border-radius: 10px;
+  max-width:auto;
+  max-height:100%;
   box-shadow: 0px 2px 20px #ccc;
 }
 

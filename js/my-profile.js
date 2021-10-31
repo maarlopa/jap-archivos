@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
    }
 
    document.getElementById("nombreUsuarioPerfil").innerHTML = `<div class="colSaludoUsuario"><div class="col"><h3><br><strong>Hola! ${localStorage.getItem("nombreUsuario")}</strong></h3><br></div></div>`;
-   document.getElementById("userImgn").innerHTML = `<br><br><div class="fotoUsuario"><img src="${fotoUsuario.src}"style="max-width: 70%; max-height: auto; overflow: hidden; border-radius: 50%;"></div>`
+   document.getElementById("userImgn").innerHTML = `<br><br><div class="fotoUsuario"><img src="${fotoUsuario.src}"style="max-width: 75%; max-height: auto; overflow: hidden; border-radius: 50%;"></div>`
    document.getElementById("userProf").innerHTML = `<br><br><br><h5><span class="fas fa-user" style="float:center";></span>&ensp;&nbsp;&ensp;${perfilObjeto.nombrePerfil} ${perfilObjeto.apellidoPerfil}<br>
                                                     <span class="fas fa-birthday-cake" style="float:center";></span>&ensp;&nbsp;&ensp;&nbsp;&ensp;&nbsp;&ensp;&nbsp;${perfilObjeto.edadPerfil} años<br><span class="fas fa-at" style="float:center";></span>&ensp;&nbsp;${perfilObjeto.emailPerf}<br><span class="fas fa-mobile-alt" style="float:center";></span>&ensp;&nbsp;&ensp;&ensp;&ensp;${perfilObjeto.telPerf}</h5>`;
 
