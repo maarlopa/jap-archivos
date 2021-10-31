@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
    document.getElementById("nombreUsuarioPerfil").innerHTML = `<div class="colSaludoUsuario"><div class="col"><h3><br><strong>Hola! ${localStorage.getItem("nombreUsuario")}</strong></h3><br></div></div>`;
    document.getElementById("userImgn").innerHTML = `<br><br><div class="fotoUsuario"><img src="${fotoUsuario.src}"style="max-width: 75%; max-height: auto; overflow: hidden; border-radius: 50%;"></div>`
-   document.getElementById("userProf").innerHTML = `<br><br><br><h5><span class="fas fa-user" style="float:center";></span> ${perfilObjeto.nombrePerfil} ${perfilObjeto.apellidoPerfil}<br>
+   document.getElementById("userProf").innerHTML = `<br><br><br><br><h5><span class="fas fa-user" style="float:center";></span> ${perfilObjeto.nombrePerfil} ${perfilObjeto.apellidoPerfil}<br>
                                                     <span class="fas fa-birthday-cake" style="float:center";></span> ${perfilObjeto.edadPerfil} años<br><span class="fas fa-at" style="float:center";></span> ${perfilObjeto.emailPerf}<br><span class="fas fa-mobile-alt" style="float:center";></span> ${perfilObjeto.telPerf}</h5>`;
 
                                                    
@@ -52,8 +52,6 @@ function guardarPerfil(){
     //localStorage.setItem("telPerf", telPerf);
 
     localStorage.setItem('profileUser', JSON.stringify(profile));
-
-    //document.getElementById("userProf").innerHTML = `<h5>${localStorage.getItem(perfilObjeto)}</h5>`;
 
 }
 
