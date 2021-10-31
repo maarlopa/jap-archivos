@@ -213,8 +213,8 @@ input[type=number]{
 }
 
 .cuerpoPerfil{
-  color: #17a2b8;
-  text-shadow: 2px 2px darkslategrey;
+  color: #343a40;
+  text-shadow: 2px 2px white;
   background-image: linear-gradient(to right,  #17a2b8, rgb(149, 255, 250));
   background-size: 100% 100%;
   background-repeat: no-repeat;
