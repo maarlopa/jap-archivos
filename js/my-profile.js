@@ -53,7 +53,7 @@ function guardarPerfil(){
 
     localStorage.setItem('profileUser', JSON.stringify(profile));
 
-    document.getElementById("userProf").innerHTML = `<h5>${localStorage.getItem(perfilObjeto)}</h5>`;
+    //document.getElementById("userProf").innerHTML = `<h5>${localStorage.getItem(perfilObjeto)}</h5>`;
 
 }
 
