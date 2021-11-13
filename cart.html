@@ -33,6 +33,7 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/4db5d28a9e.js" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -63,156 +64,247 @@
         <h2>Mi Carrito</h2>
         <p class="lead">Encontrarás aquí toda la información de los productos agregados al carrito de compras.</p>
         <br>
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col" class="col-1">#</th>
-                <th scope="col" class="col-2"></th>
-                <th scope="col" class="col-3">Producto</th>
-                <th scope="col" class="col-1">Cantidad</th>
-                <th scope="col" class="col-2">Precio (U)</th>
-                <th scope="col" class="col-2">Subtotal</th>
-                <th scope="col" class="col-1"></th>
-              </tr>
-            </thead>
-            <tbody id="productos">
-            </tbody>
-          </table>
-        </div>
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col" class="col-2"></th>
-                <th scope="col" class="col-2"></th>
-                <th scope="col" class="col-2"></th>
-                <th scope="col" class="col-2"></th>
-                <th scope="col" class="col-2">Subtotal a pagar ($):</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th></th>
-                <td scope="row" class="col-3"></td>
-                <td scope="row" class="col-3"></td>
-                <td scope="row" class="col-3"></td>
-                <td scope="row" class="col-3">
-                  <h5>UYU <span id="sumaProds"></span></h5>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h5><strong>Método de Envío</strong></h5>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" value="option1" checked>
-          <label class="form-check-label" for="exampleRadios1">
-            Premium - 2-5 días (15% adicional).
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" value="option2">
-          <label class="form-check-label" for="exampleRadios2">
-            Express - 5-8 días (7% adicional).
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-          <label class="form-check-label" for="exampleRadios3">
-            Standard - 12-15 días (5% adicional).
-          </label>
-        </div>
-        <br>
-        <br>
-        <h5><strong>Costos</strong></h5>
-        <ul class="list-group">
-          <li class="list-group-item"><strong>Subtotal</strong>
-            <div></div>
-            <p>Costo unitario del precio por cantidad</p>
-          </li>
-          <li class="list-group-item"><strong>Costo de Envío</strong>
-            <p>Según el tipo de envío</p>
-          </li>
-          <li class="list-group-item"><strong>Total ($)</strong></li>
-        </ul>
-        <br>
-        <br>
-        <h5><strong>Dirección de envío</strong></h5>
-        <br>
-        <form>
+        <form class="was-validated" id="compra">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="col-1">#</th>
+                  <th scope="col" class="col-2"></th>
+                  <th scope="col" class="col-3">Producto</th>
+                  <th scope="col" class="col-1">Cantidad</th>
+                  <th scope="col" class="col-2">Precio (U)</th>
+                  <th scope="col" class="col-2">Subtotal</th>
+                  <th scope="col" class="col-1"></th>
+                </tr>
+              </thead>
+              <tbody id="productos">
+              </tbody>
+            </table>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="col-2"></th>
+                  <th scope="col" class="col-2"></th>
+                  <th scope="col" class="col-2"></th>
+                  <th scope="col" class="col-2"></th>
+                  <th scope="col" class="col-2">Subtotal a pagar ($):</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th></th>
+                  <td scope="row" class="col-3"></td>
+                  <td scope="row" class="col-3"></td>
+                  <td scope="row" class="col-3"></td>
+                  <td scope="row" class="col-3">
+                    <h5>UYU <span id="sumaProds"></span></h5>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h5><strong>Método de Envío</strong></h5>
+          <div class="form-check">
+            <input class="form-check-input envios" type="radio" name="radios" value="1" required>
+            <label class="form-check-label" for="exampleRadios1">
+              Premium - 2-5 días (15% adicional).
+            </label>
+            <div class="invalid-feedback">==> Selecciona esta u otra opción</div>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input envios" type="radio" name="radios" value="2">
+            <label class="form-check-label" for="exampleRadios2">
+              Express - 5-8 días (7% adicional).
+            </label>
+            <div class="invalid-feedback">==> Selecciona esta u otra opción</div>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input envios" type="radio" name="radios" id="exampleRadios3" value="3">
+            <label class="form-check-label" for="exampleRadios3">
+              Standard - 12-15 días (5% adicional).
+            </label>
+            <div class="invalid-feedback">==> Selecciona esta u otra opción</div>
+          </div>
+          <br>
+          <br>
+          <h5><strong>Costos</strong></h5>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col">
+                  <strong>Subtotal</strong>
+                  <p>Costo unitario del precio por cantidad</p>
+                </div>
+                <div class="col text-right">
+                  <strong>UYU</strong>
+                  <p id="sumaSub"></p>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col">
+                  <strong>Costo de Envío</strong>
+                  <p>Según el tipo de envío</p>
+                </div>
+                <div class="col text-right">
+                  <strong>UYU</strong>
+                  <p id="precioEnvio"></p>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col">
+                  <strong>Total ($)</strong>
+                  <p>En pesos</p>
+                </div>
+                <div class="col text-right">
+                  <strong>UYU</strong>
+                  <p id="totalFinal"></p>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <br>
+          <br>
+          <h5><strong>Dirección de envío</strong></h5>
+          <br>
           <div class="form-row">
             <div class="form-group col-sm-6">
-              <label for="inputdom">Domicilio</label>
-              <input type="text" class="form-control" placeholder="calle, n° de puerta...">
+              <label for="validationTextarea">Domicilio</label>
+              <input type="text" class="form-control is-invalid controlValidacion" id="domi"
+                placeholder="calle, n° de puerta..." required>
+              <div class="invalid-feedback">
+                Debe completar este campo.
+              </div>
             </div>
             <div class="form-group col-sm-4">
               <label for="inputCity">Esquina</label>
-              <input type="text" class="form-control" placeholder="entre calles...">
+              <input type="text" class="form-control is-invalid controlValidacion" id="validationTextarea2" placeholder="entre calles..."
+                required>
+              <div class="invalid-feedback">
+                Debe completar este campo.
+              </div>
             </div>
             <div class="form-group col-sm-2">
               <label for="inputState">País</label>
-              <select id="inputState" class="form-control">
+              <select id="inputState" class="form-control" required>
                 <option selected>Uruguay</option>
                 <option>Otro</option>
               </select>
             </div>
           </div>
-        </form>
-      
-       <br>
-       <h5><strong>Seleccionar método de pago</strong></h5>
-       <!-- Button trigger modal -->
-       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Seleccionar
-       </button>
 
-       <!-- Modal -->
-       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Medios de pago</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" value="modo1" checked>
-                <label class="form-check-label" for="exampleRadios1">
-                  Tarjeta de crédito
-                </label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="radio" value="modo2">
-                <label class="form-check-label" for="exampleRadios2">
-                  Transferencia bancaria
-                </label>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-primary">Guardar</button>
-            </div>
-          </div>
-        </div>
-       </div>
-       <br>
-       <hr>
-       <button type="button" class="btn btn-primary btn-lg btn-block"><strong>Finalizar Compra</strong></button>
-       <div id="spinner-wrapper">
-        <div class="lds-ring">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-       </div>
-       <br>
-     </div>
-  </div>
+          <br>
+          <h5><strong>Seleccionar método de pago</strong></h5>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Seleccionar
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Medios de pago</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form class="was-validated" id="guardarPago">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="mediosP" id="metodo1" required>
+                      <label class="form-check-label" for="exampleRadios1">
+                        Tarjeta de crédito
+                      </label>
+                      <div class="invalid-feedback">
+                        ==> Seleccione este o el medio de pago de abajo
+                      </div>
+                    </div>
+                    <br>
+                    <div class="form-row">
+                      <div class="form-group col-md-1"></div>
+                      <div class="form-group col-md-10">
+                        <label for="inputEmail4">Número de tarjeta</label>
+                        <input type="number" min="0" class="form-control is-invalid" id="numTarj" required>
+                        <div class="invalid-feedback">
+                          ==> Ingrese su número de <br>tarjeta
+                        </div>
+                      </div>
+                      <div class="form-group col-md-1"></div>
+                    </div>
+                      <div class="form-row">
+                        <div class="form-group col-md-1"></div>
+                        <div class="form-group col-md-6">
+                          <label for="inputAddress">Vencimiento (MM/AA)</label>
+                          <input type="date" min="0" class="form-control is-invalid" id="vencimientoTarj" required>
+                          <div class="invalid-feedback">
+                            ==> Ingrese fecha de expiración
+                          </div>
+                        </div>
+                        <div class="form-group col-md-4">
+                          <label for="inputPassword4">Código de seg.</label>
+                          <input type="number" min="0" class="form-control is-invalid" id="codSeg" required>
+                          <div class="invalid-feedback">
+                            ==> Ingrese el código al dorso
+                          </div>
+                        </div>
+                        <div class="form-group col-md-1"></div>
+                      </div>
+                    <br>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="mediosP" id="metodo2">
+                      <label class="form-check-label" for="exampleRadios2">
+                        Transferencia bancaria
+                      </label>
+                      <div class="invalid-feedback">
+                        ==> Seleccione este o el medio de pago de arriba
+                      </div>
+                    </div>
+                    <br>
+                    <div class="form-row">
+                      <div class="form-group col-md-1"></div>
+                      <div class="form-group col-md-10">
+                        <label for="inputEmail4">Número de cuenta</label>
+                        <input type="number" min="0" class="form-control is-invalid" id="numCuenta" required>
+                      </div>
+                      <div class="form-group col-md-1"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" form="guardarPago" class="btn btn-primary" onclick="datosGuardados()"
+                    data-dismiss="modal">Guardar</button>
+                </div>
+        </form>
+      </div>
+    </div>
+    </div>
+    <br>
+    <hr>
+    <button type="submit" form="compra" class="btn btn-primary btn-lg btn-block"
+      onclick="compraExitosa()"><strong>Finalizar
+        Compra</strong>
+    </button>
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <br>
+    </form>
+    </div>
+    </div>
   </main>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
