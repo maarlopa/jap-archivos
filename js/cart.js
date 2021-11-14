@@ -182,11 +182,6 @@ function compraExitosa() {
     for (let i = 0; i < cantidadProds.length; i++) {
         cantidades+=parseFloat(cantidadProds[i].value);
     }    
-    console.log(esquina);
-    console.log(domicilio);
-    console.log(numCuenta);
-    
-
     if((porcentajeEnvioSeleccionado !=0 && cantidades !=0 && domicilio.trim() !="" && esquina.trim() !="" && numeroTarj !="" && vencimientoTarj !="" && codSeg !="") || (
         porcentajeEnvioSeleccionado !=0 && cantidades !=0 && domicilio.trim() !="" && esquina.trim() !="" && numCuenta !="" )){
         Swal.fire({
