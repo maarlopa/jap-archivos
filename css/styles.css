@@ -227,3 +227,14 @@ input[type=number]{
   box-shadow: 0px 2px 20px #ccc;
   height: 300px;
 }
+.is-invalid {
+  border-color: #dc3545 !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E") !important;
+}
+.is-invalid:focus {
+  box-shadow: 0 0 0 .2rem #dc354540 !important;
+}
+
+.esconderFeedback {
+  display: none !important;
+}

@@ -64,7 +64,7 @@
         <h2>Mi Carrito</h2>
         <p class="lead">Encontrarás aquí toda la información de los productos agregados al carrito de compras.</p>
         <br>
-        <form class="was-validated" id="compra">
+        <form class="was-validated" id="compra" onsubmit="return demorar(this)">
           <div class="table-responsive">
             <table class="table">
               <thead>
@@ -176,18 +176,18 @@
           <div class="form-row">
             <div class="form-group col-sm-6">
               <label for="validationTextarea">Domicilio</label>
-              <input type="text" class="form-control is-invalid controlValidacion" id="domi"
+              <input type="text" class="form-control is-invalid controlValidacion" id="domicilio"
                 placeholder="calle, n° de puerta..." required>
               <div class="invalid-feedback">
-                Debe completar este campo.
+                ==> Debe completar este campo.
               </div>
             </div>
             <div class="form-group col-sm-4">
               <label for="inputCity">Esquina</label>
-              <input type="text" class="form-control is-invalid controlValidacion" id="validationTextarea2" placeholder="entre calles..."
-                required>
+              <input type="text" class="form-control is-invalid controlValidacion" id="esquina"
+                placeholder="entre calles..." required>
               <div class="invalid-feedback">
-                Debe completar este campo.
+                ==> Debe completar este campo.
               </div>
             </div>
             <div class="form-group col-sm-2">
@@ -219,69 +219,66 @@
                 </div>
                 <div class="modal-body">
                   <form class="was-validated" id="guardarPago">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="mediosP" id="metodo1" required>
-                      <label class="form-check-label" for="exampleRadios1">
-                        Tarjeta de crédito
-                      </label>
-                      <div class="invalid-feedback">
-                        ==> Seleccione este o el medio de pago de abajo
-                      </div>
+                    <input class="form-check-input" type="radio" name="mediosP" id="metodo1" required>
+                    <label class="form-check-label" for="exampleRadios1">
+                      Tarjeta de crédito
+                    </label>
+                    <div class="invalid-feedback">
+                      ==> Seleccione este o el medio de pago de abajo
                     </div>
-                    <br>
                     <div class="form-row">
                       <div class="form-group col-md-1"></div>
                       <div class="form-group col-md-10">
                         <label for="inputEmail4">Número de tarjeta</label>
                         <input type="number" min="0" class="form-control is-invalid" id="numTarj" required>
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback" id="esconder">
                           ==> Ingrese su número de <br>tarjeta
                         </div>
                       </div>
                       <div class="form-group col-md-1"></div>
                     </div>
-                      <div class="form-row">
-                        <div class="form-group col-md-1"></div>
-                        <div class="form-group col-md-6">
-                          <label for="inputAddress">Vencimiento (MM/AA)</label>
-                          <input type="date" min="0" class="form-control is-invalid" id="vencimientoTarj" required>
-                          <div class="invalid-feedback">
-                            ==> Ingrese fecha de expiración
-                          </div>
+                    <div class="form-row">
+                      <div class="form-group col-md-1"></div>
+                      <div class="form-group col-md-6">
+                        <label for="inputAddress">Vencimiento (MM/AA)</label>
+                        <input type="date" min="0" class="form-control is-invalid" id="vencimientoTarj" required>
+                        <div class="invalid-feedback" id="esconder2">
+                          ==> Ingrese fecha de expiración
                         </div>
-                        <div class="form-group col-md-4">
-                          <label for="inputPassword4">Código de seg.</label>
-                          <input type="number" min="0" class="form-control is-invalid" id="codSeg" required>
-                          <div class="invalid-feedback">
-                            ==> Ingrese el código al dorso
-                          </div>
+                      </div>
+                      <div class="form-group col-md-4">
+                        <label for="inputPassword4">Código de seg.</label>
+                        <input type="number" min="0" class="form-control is-invalid" id="codSeg" required>
+                        <div class="invalid-feedback" id="esconder3">
+                          ==> Ingrese el código al dorso
                         </div>
-                        <div class="form-group col-md-1"></div>
                       </div>
-                    <br>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="mediosP" id="metodo2">
-                      <label class="form-check-label" for="exampleRadios2">
-                        Transferencia bancaria
-                      </label>
-                      <div class="invalid-feedback">
-                        ==> Seleccione este o el medio de pago de arriba
-                      </div>
+                      <div class="form-group col-md-1"></div>
                     </div>
                     <br>
+                    <input class="form-check-input" type="radio" name="mediosP" id="metodo2" required>
+                    <label class="form-check-label" for="exampleRadios2">
+                      Transferencia bancaria
+                    </label>
+                    <div class="invalid-feedback">
+                      ==> Seleccione este o el medio de pago de arriba
+                    </div>
                     <div class="form-row">
                       <div class="form-group col-md-1"></div>
                       <div class="form-group col-md-10">
                         <label for="inputEmail4">Número de cuenta</label>
                         <input type="number" min="0" class="form-control is-invalid" id="numCuenta" required>
+                        <div class="invalid-feedback" id="esconder4">
+                          ==> Ingrese su número de cuenta
+                        </div>
                       </div>
                       <div class="form-group col-md-1"></div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button type="submit" form="guardarPago" class="btn btn-primary" onclick="datosGuardados()"
-                    data-dismiss="modal">Guardar</button>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                      <button type="submit" form="guardarPago" class="btn btn-primary" onclick="datosGuardados()"
+                        data-dismiss="modal">Guardar</button>
+                    </div>
                 </div>
         </form>
       </div>
@@ -290,9 +287,7 @@
     <br>
     <hr>
     <button type="submit" form="compra" class="btn btn-primary btn-lg btn-block"
-      onclick="compraExitosa()"><strong>Finalizar
-        Compra</strong>
-    </button>
+      onclick="compraExitosa()"><strong>Finalizar Compra</strong></button>
     <div id="spinner-wrapper">
       <div class="lds-ring">
         <div></div>

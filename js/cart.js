@@ -1,8 +1,7 @@
 var productoCarrito = [];
 var porcentajeEnvioSeleccionado = 0;
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+var formok = false;
+
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(CART_INFO_2).then(function (objetoCarrito) {
         if (objetoCarrito.status === "ok") {
@@ -12,22 +11,32 @@ document.addEventListener("DOMContentLoaded", function(e){
         }    
     }); 
 
-    document.getElementById("metodo1").addEventListener("click",()=>{
-        document.getElementById("numTarj").disabled = false;
-        document.getElementById("vencimientoTarj").disabled = false;
-        document.getElementById("codSeg").disabled = false;
-        document.getElementById("numCuenta").disabled = true;
+    document.getElementById('domicilio').addEventListener('keyup',()=>{
+        validarCamposTexto("domicilio");
+    }); 
+
+    document.getElementById('esquina').addEventListener('keyup',()=>{
+        validarCamposTexto("esquina");
     });
-    document.getElementById("metodo2").addEventListener("click",()=>{
-        document.getElementById("numTarj").disabled = true;
-        document.getElementById("vencimientoTarj").disabled = true;
-        document.getElementById("codSeg").disabled = true;
-        document.getElementById("numCuenta").disabled = false;
+
+    document.getElementById('numTarj').addEventListener('keyup',()=>{
+        validarCamposTexto("numTarj");
+    });
+
+    document.getElementById('vencimientoTarj').addEventListener('keyup',()=>{
+        validarCamposTexto("vencimientoTarj");
+    });
+
+    document.getElementById('codSeg').addEventListener('keyup',()=>{
+        validarCamposTexto("codSeg");
+    });
+
+    document.getElementById('numCuenta').addEventListener('keyup',()=>{
+        validarCamposTexto("numCuenta");
     });
 
     costos();
-    //validarCamposTexto();
-    
+    deshabilitarMedioDePago();
 });
 
 function mostrarProductosCarrito() {
@@ -110,43 +119,84 @@ function borrarProducto(index){
    sumarYActualizarSubtotales();
 }
 
-/*function validarCamposTexto(){
-    let campo = document.getElementsByClassName('controlValidacion').value;
+function validarCamposTexto(id){
+     let texto = document.getElementById(id).value;
+     if (texto.trim()===""){
+         document.getElementById(id).classList.add('is-invalid', 'animate__animated', 'animate__wobble');
+     }else{        
+         document.getElementById(id).classList.remove('is-invalid', 'animate__animated', 'animate__wobble');
+     }
+}
 
-    for (let i = 0; i <  campo.length; i++) {
-        document.getElementsByClassName('controlValidacion').addEventListener('keyup',()=>{
-      })
 
-    }
-    if (campo.trim()===""){
-        document.getElementsByClassName('controlValidacion').classList.add('is-invalid', 'animate__animated', 'animate__wobble');
-        
-    }else{
-        document.getElementsByClassName('controlValidacion').classList.remove('is-invalid', 'animate__animated', 'animate__wobble');
-    }
-}*/
+function deshabilitarMedioDePago() {
+    document.getElementById("metodo1").disabled = false;
+    document.getElementById("numTarj").disabled = true;
+    document.getElementById("vencimientoTarj").disabled = true;
+    document.getElementById("codSeg").disabled = true;
+    document.getElementById("metodo2").disabled = false;
+    document.getElementById("numCuenta").disabled = true;
+ 
+    document.getElementById("metodo1").addEventListener("click",()=>{
+        document.getElementById("numTarj").disabled = false;
+        document.getElementById("vencimientoTarj").disabled = false;
+        document.getElementById("codSeg").disabled = false;
+        document.getElementById("numCuenta").disabled = true;
+        document.getElementById("esconder4").classList.add("esconderFeedback");
+        document.getElementById("esconder").classList.remove("esconderFeedback");
+        document.getElementById("esconder2").classList.remove("esconderFeedback");
+        document.getElementById("esconder3").classList.remove("esconderFeedback");
+    });
+    document.getElementById("metodo2").addEventListener("click",()=>{
+        document.getElementById("numTarj").disabled = true;
+        document.getElementById("vencimientoTarj").disabled = true;
+        document.getElementById("codSeg").disabled = true;
+        document.getElementById("numCuenta").disabled = false;
+        document.getElementById("esconder").classList.add("esconderFeedback");
+        document.getElementById("esconder2").classList.add("esconderFeedback");
+        document.getElementById("esconder3").classList.add("esconderFeedback");
+        document.getElementById("esconder4").classList.remove("esconderFeedback");
+    });
+}
 
 function datosGuardados() {
-    Swal.fire('Genial! estás a un paso de completar tu compra..')
+    Swal.fire({ 
+               position: 'center',
+               icon: 'info',
+               title: 'Genial! estás a un paso de completar tu compra..',
+               showConfirmButton: false,
+               timer: 2000
+              })
 }
 
 function compraExitosa() {
     let cantidades = 0;
     let cantidadProds = document.getElementsByClassName("canti");
-    let domicilio = document.getElementById("domi");
-    //let esquina = 
+    let domicilio = document.getElementById("domicilio").value;
+    let esquina = document.getElementById("esquina").value;
+    let numeroTarj = document.getElementById("numTarj").value;
+    let vencimientoTarj = document.getElementById("vencimientoTarj").value;
+    let codSeg =  document.getElementById("codSeg").value;
+    let numCuenta = document.getElementById("numCuenta").value;
 
     for (let i = 0; i < cantidadProds.length; i++) {
         cantidades+=parseFloat(cantidadProds[i].value);
     }    
-    if(cantidades!=0 && domicilio !=""){
+    console.log(esquina);
+    console.log(domicilio);
+    console.log(numCuenta);
+    
+
+    if((porcentajeEnvioSeleccionado !=0 && cantidades !=0 && domicilio.trim() !="" && esquina.trim() !="" && numeroTarj !="" && vencimientoTarj !="" && codSeg !="") || (
+        porcentajeEnvioSeleccionado !=0 && cantidades !=0 && domicilio.trim() !="" && esquina.trim() !="" && numCuenta !="" )){
         Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Compra realizada!',
             showConfirmButton: false,
             timer: 2500
-          });
+          })
+        formok = true;
     }else{
         Swal.fire({
             position: 'center',
@@ -154,7 +204,15 @@ function compraExitosa() {
             title: 'Ups! al parecer hubo un error',
             showConfirmButton: false,
             timer: 2500
-          });
+          })
+        formok = false;
     }
-    
+}
+function demorar(form) {
+   if (formok) {
+    setTimeout(function() {
+        form.submit();
+    }, 3000); 
+   }
+   return false;
 }
