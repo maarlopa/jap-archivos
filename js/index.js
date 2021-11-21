@@ -8,7 +8,10 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 function guardarNombreUsuario(){
     let userName = document.getElementById("campoemail").value;
+    localStorage.setItem("nombreUsuario", userName);
+}
 
+function guardarNombreUsuarioGoogle(userName){
     localStorage.setItem("nombreUsuario", userName);
 }
 
