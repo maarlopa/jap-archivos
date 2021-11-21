@@ -238,7 +238,3 @@ input[type=number]{
 .esconderFeedback {
   display: none !important;
 }
-
-.g-signin2{
-  position: absolute;
-}

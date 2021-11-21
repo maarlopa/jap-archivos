@@ -6,21 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso</title>
     <link href="css/styles-login.css" rel="stylesheet" type="text/css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="354698273793-om2nsoa5ugqm8uaucrlp1bh1deaqq81u.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="js/index.js"></script>  
 </head>
 <body>
+  <div class="container">
     <form action="home.html" class="formulario">
-        <img src="img/logo.png">
-        <h1>Iniciar Sesión</h1>
-        <input type="text" id="campoemail" class="campotexto" placeholder="Usuario" required><br>
-        <input type="password" id="campocontrasenia" class="campotexto" placeholder="Contraseña" required><br>
-        <input type="checkbox" value="recordarme"> Recordarme<br><br>
-        <button class="boton" type="submit" id="botonlogin" onclick="guardarNombreUsuario()">Ingresar</button>
-      </form>    
-      <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+      <img src="img/logo.png">
+      <h1>Iniciar Sesión</h1>
+      <input type="text" id="campoemail" class="campotexto" placeholder="Usuario" required><br>
+      <input type="password" id="campocontrasenia" class="campotexto" placeholder="Contraseña" required><br>
+      <input type="checkbox" value="recordarme"> Recordarme<br><br>
+      <button class="boton" type="submit" id="botonlogin" onclick="guardarNombreUsuario()">Ingresar</button>
+   </form>   
+   <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+ </div>    
       <script>
         function onSignIn(googleUser) {
           // Useful data for your client-side scripts:
