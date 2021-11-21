@@ -11,10 +11,6 @@ function guardarNombreUsuario(){
     localStorage.setItem("nombreUsuario", userName);
 }
 
-function guardarNombreUsuarioGoogle(userName){
-    localStorage.setItem("nombreUsuario", userName);
-}
-
 function deslogearse(){
     localStorage.clear("nombreUsuario");
     location.href = "index.html";
