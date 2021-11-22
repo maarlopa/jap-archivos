@@ -6,7 +6,7 @@ body{
 }
 
 .formulario{
-  padding-top: 10%;
+  padding-top: 12%;
   padding-bottom: 10%;
 }
 
@@ -41,4 +41,9 @@ img{
   border: 1px solid #17a2b8;
   padding: 6px 55px;
   cursor: pointer;
+}
+
+.g-signin2{
+  margin: auto;
+  width: 10%;
 }
